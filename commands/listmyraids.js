@@ -1,7 +1,7 @@
 module.exports = {
-    name: 'listraids',
-    aliases: ['lsraids'],
-    description: 'List current raids', //TODO: make this unabiguous
+    name: 'listmyraids',
+    aliases: ['lsmyraids'],
+    description: 'List all raids you are currently in', //TODO: make this unambiguous
     guildOnly: true,
     args: false,
     usage: '',
