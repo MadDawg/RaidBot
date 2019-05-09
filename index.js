@@ -9,23 +9,17 @@
 const {token, command_prefix} = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-//client.commands = new Discord.Collection();
+client.commands = new Discord.Collection();
 
-/*const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
-}*/
+}
 
 // Other third-party stuff
-//const Browser = require('zombie');
-//const browser = new Browser();
 //const Cron = require('node-cron');
-
-// Our stuff
-//const LoungeBot = require('./loungebot.js');
-//const bot = new LoungeBot();
 
 let raids = [];
 let players = [];

@@ -10,13 +10,19 @@ module.exports = {
     minArgs: 2,
 
     execute(message, args, raids, players){
-        args[0] = args[0].toLowerCase();
-        let index = raids.findIndex(x => x.name === args[0]);
-        if (index > -1){
-            return message.reply(`Raid **${args[0]}** already exists.`)
+        name = args[0].toLowerCase();
+        level = args[1].toLowerCase();
+
+        if (isNaN(level) && level != "high" && level != "low"){
+            return message.reply(`Invalid value entered for level.`);
         }
 
-        const raid = new Raid(args[0], args[1], message.author.id, message.guild.id);
+        let index = raids.findIndex(x => x.name === name);
+        if (index > -1){
+            return message.reply(`Raid **${name}** already exists.`)
+        }
+
+        const raid = new Raid(name, level, message.author.id, message.guild.id);
         raids.push(raid);
         let reply = `Raid **${raid.name}** created!`;
 
