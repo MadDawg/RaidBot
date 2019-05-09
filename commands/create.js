@@ -38,9 +38,9 @@ module.exports = {
 
         reply += `\nSwitched active raid to **${raid.name}**.`
 
-        if (args.length < 2){
-            date_raw_str = args.splice(0,1);
-            date_str = Date(date_raw_str);
+        if (args.length > 2){
+            date_raw_str = args.splice(0,2);
+            date_str = Date(date_raw_str.join(" "));
             if (date_str == "Invalid Date"){
                 reply += `\nInvalid date/time was ignored.`;
             }
