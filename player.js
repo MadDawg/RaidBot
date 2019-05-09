@@ -11,6 +11,9 @@ class Player{
 
         // raid array index;
         this.index = 0;
+
+        //player's timezone
+        this.timeZone = "Asia/Hong_Kong";
     }
     switchRaid(name, raids, resigned = false){
         // TODO: check if player is even a member of any raids
@@ -20,21 +23,21 @@ class Player{
             index = raids.findIndex(x => x.name === name);
 
             if (index < 0){
-                //return `Raid ${name} not found`;
-                return;
+                return `Raid ${name} not found`;
+                //return;
             }
             else if (index > -1 && this.active.name == raids[index].name){
-                // return `This raid is already your active raid`;
-                return;
+                return `This raid is already your active raid`;
+                //return;
             }
             else if (index > -1 && raids[i].isMember(this.uid)){
                 active = raids[i];
-                //return `Switched to raid ${name}`;
-                return;
+                return `Switched to raid ${name}`;
+                //return;
             }
             else{
-                //return `You have not joined raid ${name}`;
-                return;
+                return `You have not joined raid ${name}`;
+                //return;
             }
         }
 
@@ -55,12 +58,12 @@ class Player{
             if (raids[this.index].isMember(this.uid)){
                 this.active = raids[this.index];
                 if (resigned){
-                    //return `Switched to raid ${name}`;
+                    return `Switched active raid to ${name}`;
                 }
                 return;
             }
         } while(i != this.index);
-        //return `There are no raids to switch to`;
+        return `There are no raids you can switch to`;
     }
 }
 

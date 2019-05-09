@@ -7,5 +7,8 @@ module.exports = {
     usage: '<name> <level>',
     admin: false,
     leader: false,
+    minArgs: 2,
+
+    execute(message, args, raids, players){}
 
 }

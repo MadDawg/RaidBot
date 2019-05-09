@@ -11,16 +11,25 @@ module.exports = {
 
     execute(message, args, raids, players){
         args[0] = args[0].toLowerCase();
-        const index = raids.findIndex(x => x.name === args[0]);
+        let index = raids.findIndex(x => x.name === args[0]);
         if (index > -1){
             return message.reply(`Raid **${args[0]}** already exists.`)
         }
 
         const raid = new Raid(args[0], args[1], message.author.id, message.guild.id);
+        raids.push(raid);
         let reply = `Raid **${raid.name}** created!`;
 
-        const player = new Player(message.author.id);
+
+        let player = undefined;
+        index = players.findIndex(x => x.uid === message.author.id);
+        if (index > -1){ player = players[index]; }
+        else{
+            player = new Player(message.author.id);
+            players.push(player);
+        }
         player.active = raid;
+
         reply += `\nSwitched active raid to **${raid.name}**.`
 
         if (args.length < 2){

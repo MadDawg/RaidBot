@@ -6,10 +6,7 @@ class Raid{
         this.players = []; // uid/boolean pairs
         this.leader_uid = leader_uid; //uid
         this.guild_id = guild_id;
-        this.date = {
-            time: "not set",
-            timezone: "Asia/Hong_Kong"
-        };
+        this.date = "not set"
         this.reminders = false;
         this.name = name;
         this.addPlayer(leader_uid, level);
@@ -49,8 +46,8 @@ class Raid{
     isLeader(player_uid){
         return (player_uid == this.leader_uid);
     }
-    setTime(time){
-        this.date.time = time;
+    setTime(date){
+        this.date = date;
     }
     setTimeZone(timezone){
         this.date.timezone = timezone;
