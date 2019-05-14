@@ -1,0 +1,26 @@
+{
+  "name": "raidbot",
+  "version": "0.0.1",
+  "description": "Discord bot for organizing 12-man raids in Honkai Impact 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "lint": "eslint ."
+  },
+  "author": "MadDawg",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "mz": "^2.7.0",
+    "sequelize": "^5.8.6",
+    "sqlite": "^3.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MadDawg/RaidBot"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3"
+  }
+}
