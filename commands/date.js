@@ -1,3 +1,5 @@
+const PlayerFinder = require('../lib/findplayer.js');
+
 module.exports = {
     name: 'date',
     aliases: [],
@@ -10,7 +12,7 @@ module.exports = {
 
     execute(message, args, raids, players){
         const format = {
-            timeZone: "UTC",
+            timeZone: "Asia/Hong_Kong",
             hourCycle: "h24",
             weekday: "short",
             year: "numeric",
@@ -25,9 +27,7 @@ module.exports = {
         const date = new Date();
 
         try{
-            let player = undefined;
-            index = players.findIndex(x => x.uid === message.author.id);
-            if (index > -1){ player = players[index]; }
+            const player = PlayerFinder.findPlayer(message.author.id, players, false);
 
             if (args != ""){ format.timeZone = args; }
             else if (player){ format.timeZone = player.timeZone; }
@@ -36,7 +36,7 @@ module.exports = {
         }
         catch(err) {
             if (err instanceof RangeError){
-                message.channel.send(`Invalid or unsupported timezone: ${format.timeZone}`);
+                message.channel.send(`Invalid or unsupported timezone: **${format.timeZone}**`);
                 format.timeZone = "Asia/Hong_Kong";
                 message.channel.send(date.toLocaleString('en-GB', format));
             }
