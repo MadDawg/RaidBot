@@ -4,7 +4,7 @@ const PlayerFinder = require('../lib/findplayer.js');
 
 module.exports = {
     name: 'create',
-    aliases: ['createraid', 'makeraid', 'hostraid', 'host'],
+    aliases: ['createraid', 'makeraid', 'hostraid', 'host', 'create'],
     description: 'Create a raid',
     guildOnly: true,
     args: true,
